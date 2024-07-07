@@ -5,13 +5,21 @@ import './App.css';
 
 function App() {
 
+  const [todos, setTodos] = useState([]);
+
+  const createTodo = (newTodo) => {
+    setTodos([...todos, newTodo])
+  }
+  console.log(todos)
 
   return (
     <div className='App'>
       <div className='inclusive-div'>
-        <TodoCreate />
-        <TodoList/>
+        <TodoCreate onCreateTodo = {createTodo} />
+        <TodoList />
       </div>
+
+      
     </div>
   )
 }
