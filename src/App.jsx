@@ -16,13 +16,25 @@ function App() {
     
   }
 
+  const updateTodo = (newTodo) => {
+    const updatedTodos = todos.map((todo)=> {
+      if(todo.id !== newTodo.id){
+        return todo;
+      }
+      return newTodo;
+      
+
+    })
+    setTodos([...updatedTodos])
+  }
+
   console.log(todos)
 
   return (
     <div className='App'>
       <div className='inclusive-div'>
         <TodoCreate onCreateTodo = {createTodo} />
-        <TodoList onRemoveTodo = {removeTodo} todos = {todos} />
+        <TodoList onRemoveTodo = {removeTodo} todos = {todos} onUpdateTodo = {updateTodo} />
       </div>
 
       
