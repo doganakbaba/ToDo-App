@@ -3,14 +3,20 @@ import { IoIosRemoveCircle } from "react-icons/io";
 import { FaEdit } from "react-icons/fa";
 import '../App.css';
 
-function Todo({ todo }) {
+function Todo({ todo, onRemoveTodo }) {
+    const { id, content } = todo;
+
+    const removeTodo = () => {
+        onRemoveTodo(id);
+    }
+
     return (
         <div className='todo'>
             <div>
                 {todo.content}
             </div>
             <div>
-                <IoIosRemoveCircle className='todo-icons' />
+                <IoIosRemoveCircle onClick={removeTodo} className='todo-icons' />
                 <FaEdit className='todo-icons' />
 
 
